@@ -18,12 +18,11 @@ export class BitlinkAPI extends BaseAPI {
             "Authorization": `Bearer ${this.accessToken}`
         }
 
-        return await context.post(`/v4/shorten`, {
+        return await context.post(`/${this.apiVersion}/shorten`, {
             headers,
             data: payload,
         })
     }
-
 
     createBitlinkForLongUrl(longUrl: string): Promise<APIResponse> {
         const request: BitlinkRequest = {
@@ -47,7 +46,6 @@ export class BitlinkAPI extends BaseAPI {
         })
     }
 
-
     async retrieveBitlink(bitlink: string): Promise<APIResponse> {
         const context = await super.getBitlyContext()
 
@@ -56,7 +54,7 @@ export class BitlinkAPI extends BaseAPI {
             "Authorization": `Bearer ${this.accessToken}`
         }
 
-        return await context.get(`/v4/bitlinks/${bitlink}`, {
+        return await context.get(`/${this.apiVersion}/bitlinks/${bitlink}`, {
             headers
         })
     }
@@ -69,12 +67,9 @@ export class BitlinkAPI extends BaseAPI {
             "Authorization": `Bearer ${this.accessToken}`
         }
 
-        return await context.patch(`/v4/bitlinks/${bitlink}`, {
+        return await context.patch(`/${this.apiVersion}/bitlinks/${bitlink}`, {
             headers,
             data: request,
         })
     }
-
-
-
 }
