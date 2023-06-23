@@ -1,0 +1,19 @@
+{
+  "name": "bitly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "about": "Echo please run tests using `npm run tests:api` or `npm run:tests:ui`",
+    "tests:api": "playwright test --config=playwright.api.config.ts --reporter=html --grep @api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.35.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
